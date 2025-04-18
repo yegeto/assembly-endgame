@@ -6,10 +6,12 @@ import Status from "./components/Status";
 import LanguageChips from "./components/LanguageChips";
 import UserGuess from "./components/SecretWord";
 import Keyboard from "./components/Keyboard";
+import { getRandomWord } from "./components/utils";
 
 function App() {
-  const [currentWord, setCurrentWord] = useState("react");
+  const [currentWord, setCurrentWord] = useState(() => getRandomWord());
   const [guessedLetters, setGuessedLetters] = useState([]);
+  console.log(currentWord);
 
   const wrongGuessCount = guessedLetters.filter(
     (letter) => !currentWord.includes(letter)
