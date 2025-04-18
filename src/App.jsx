@@ -32,6 +32,11 @@ function App() {
     }
   }
 
+  function startNewGame() {
+    setCurrentWord(getRandomWord());
+    setGuessedLetters([]);
+  }
+
   return (
     <main>
       <Header />
@@ -53,7 +58,11 @@ function App() {
         secretWord={currentWord}
         isGameEnd={isGameEnd}
       />
-      {isGameEnd ? <button className="new-game">New Game</button> : null}
+      {isGameEnd ? (
+        <button className="new-game" onClick={startNewGame}>
+          New Game
+        </button>
+      ) : null}
     </main>
   );
 }
