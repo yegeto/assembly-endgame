@@ -1,0 +1,13 @@
+section.language-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  justify-content: center;
+  max-width: 350px;
+  margin-bottom: 36px;
+}
+
+span.chip {
+  border-radius: 3px;
+  padding: 4.5px;
+}
