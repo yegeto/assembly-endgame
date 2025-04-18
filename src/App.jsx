@@ -40,7 +40,11 @@ function App() {
         isLastGuessIncorrect={isLastGuessIncorrect}
       />
       <LanguageChips wrongGuessCount={wrongGuessCount} />
-      <UserGuess secretWord={currentWord} userGuesses={guessedLetters} />
+      <UserGuess
+        secretWord={currentWord}
+        userGuesses={guessedLetters}
+        lastGuessedLetter={lastGuessedLetter}
+      />
       <Keyboard
         onGuess={handleGuess}
         userGuesses={guessedLetters}
