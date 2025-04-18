@@ -16,7 +16,6 @@ function App() {
       setGuessedLetters((prevLetters) => [...prevLetters, letter]);
     }
   }
-  console.log(guessedLetters);
 
   return (
     <main>
@@ -24,7 +23,11 @@ function App() {
       <Status />
       <LanguageChips />
       <UserGuess currentWord={currentWord} />
-      <Keyboard onGuess={handleGuess} />
+      <Keyboard
+        onGuess={handleGuess}
+        userGuesses={guessedLetters}
+        secretWord={currentWord}
+      />
       <button className="new-game">New Game</button>
     </main>
   );
