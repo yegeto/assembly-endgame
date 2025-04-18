@@ -7,19 +7,25 @@ export default function Status({ userLost, userWon }) {
     lost: userLost,
   });
 
-  return (
-    <section className={gameStatusClass}>
-      {userWon ? (
-        <>
-          <h2>You win!</h2>
-          <p>Well done! 🎉</p>
-        </>
-      ) : userLost ? (
+  function renderGameStatus() {
+    if (userLost) {
+      return (
         <>
           <h2>Game over!</h2>
           <p>You lose! Better start learning Assembly 😭</p>
         </>
-      ) : null}
-    </section>
-  );
+      );
+    } else if (userWon) {
+      return (
+        <>
+          <h2>You win!</h2>
+          <p>Well done! 🎉</p>
+        </>
+      );
+    } else {
+      return null;
+    }
+  }
+
+  return <section className={gameStatusClass}>{renderGameStatus()}</section>;
 }
