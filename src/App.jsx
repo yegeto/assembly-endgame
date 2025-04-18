@@ -25,7 +25,7 @@ function App() {
     <main>
       <Header />
       <Status />
-      <LanguageChips />
+      <LanguageChips wrongGuessCount={wrongGuessCount} />
       <UserGuess secretWord={currentWord} userGuesses={guessedLetters} />
       <Keyboard
         onGuess={handleGuess}
