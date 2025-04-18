@@ -4,7 +4,7 @@ import "./App.css";
 import Header from "./components/Header";
 import Status from "./components/Status";
 import LanguageChips from "./components/LanguageChips";
-import UserGuess from "./components/SecretWord";
+import SecretWord from "./components/SecretWord";
 import Keyboard from "./components/Keyboard";
 import { getRandomWord } from "./components/utils";
 
@@ -47,10 +47,11 @@ function App() {
         isLastGuessIncorrect={isLastGuessIncorrect}
       />
       <LanguageChips wrongGuessCount={wrongGuessCount} />
-      <UserGuess
+      <SecretWord
         secretWord={currentWord}
         userGuesses={guessedLetters}
         lastGuessedLetter={lastGuessedLetter}
+        isGameOver={isGameOver}
       />
       <Keyboard
         onGuess={handleGuess}

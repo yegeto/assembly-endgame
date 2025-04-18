@@ -4,14 +4,20 @@ export default function SecretWord({
   secretWord,
   userGuesses,
   lastGuessedLetter,
+  isGameOver,
 }) {
-  const letterElements = secretWord
-    .split("")
-    .map((letter, index) => (
-      <span key={index}>
-        {userGuesses.includes(letter) ? letter.toUpperCase() : ""}
+  const letterElements = secretWord.split("").map((letter, index) => {
+    const isGuessesIncludesLetter = userGuesses.includes(letter);
+    const shouldRevealLetter = isGameOver || isGuessesIncludesLetter;
+    const revealedLetterClass =
+      isGameOver && !isGuessesIncludesLetter ? "missed-letter" : null;
+    return (
+      <span key={index} className={revealedLetterClass}>
+        {shouldRevealLetter ? letter.toUpperCase() : ""}
       </span>
-    ));
+    );
+  });
+
   return (
     <>
       <section className="word">{letterElements}</section>
