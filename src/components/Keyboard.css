@@ -23,3 +23,8 @@ section.keyboard>button.correct {
 section.keyboard>button.wrong {
   background-color: #EC5D49;
 }
+
+section.keyboard>button:disabled {
+  cursor: not-allowed;
+  opacity: 0.5
+}

@@ -45,6 +45,7 @@ function App() {
         onGuess={handleGuess}
         userGuesses={guessedLetters}
         secretWord={currentWord}
+        isGameEnd={isGameEnd}
       />
       {isGameEnd ? <button className="new-game">New Game</button> : null}
     </main>

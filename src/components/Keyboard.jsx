@@ -2,7 +2,12 @@ import { clsx } from "clsx";
 
 import "./Keyboard.css";
 
-export default function Keyboard({ onGuess, userGuesses, secretWord }) {
+export default function Keyboard({
+  onGuess,
+  userGuesses,
+  secretWord,
+  isGameEnd,
+}) {
   const alphabet = "abcdefghijklmnopqrstuvwxyz";
 
   const keyboardElements = alphabet.split("").map((letter) => {
@@ -15,7 +20,12 @@ export default function Keyboard({ onGuess, userGuesses, secretWord }) {
     });
 
     return (
-      <button className={keyClass} onClick={() => onGuess(letter)} key={letter}>
+      <button
+        className={keyClass}
+        onClick={() => onGuess(letter)}
+        key={letter}
+        disabled={isGameEnd}
+      >
         {letter.toUpperCase()}
       </button>
     );
