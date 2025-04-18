@@ -30,7 +30,7 @@ function App() {
   return (
     <main>
       <Header />
-      <Status />
+      <Status userWon={isGameWon} userLost={isGameOver} />
       <LanguageChips wrongGuessCount={wrongGuessCount} />
       <UserGuess secretWord={currentWord} userGuesses={guessedLetters} />
       <Keyboard
