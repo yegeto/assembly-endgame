@@ -11,7 +11,6 @@ import Confetti from "react-confetti";
 function App() {
   const [currentWord, setCurrentWord] = useState(() => getRandomWord());
   const [guessedLetters, setGuessedLetters] = useState([]);
-  console.log(currentWord);
 
   const wrongGuessCount = guessedLetters.filter(
     (letter) => !currentWord.includes(letter)
