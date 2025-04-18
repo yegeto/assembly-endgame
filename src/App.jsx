@@ -22,7 +22,7 @@ function App() {
       <Header />
       <Status />
       <LanguageChips />
-      <UserGuess currentWord={currentWord} />
+      <UserGuess secretWord={currentWord} userGuesses={guessedLetters} />
       <Keyboard
         onGuess={handleGuess}
         userGuesses={guessedLetters}
