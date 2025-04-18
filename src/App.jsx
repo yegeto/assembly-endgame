@@ -15,6 +15,12 @@ function App() {
     (letter) => !currentWord.includes(letter)
   ).length;
 
+  const isGameWon = currentWord
+    .split("")
+    .every((letter) => guessedLetters.includes(letter));
+  const isGameOver = wrongGuessCount > 7;
+  const isGameEnd = isGameOver || isGameWon;
+
   function handleGuess(letter) {
     if (!guessedLetters.includes(letter)) {
       setGuessedLetters((prevLetters) => [...prevLetters, letter]);
@@ -32,7 +38,7 @@ function App() {
         userGuesses={guessedLetters}
         secretWord={currentWord}
       />
-      <button className="new-game">New Game</button>
+      {isGameEnd ? <button className="new-game">New Game</button> : null}
     </main>
   );
 }
