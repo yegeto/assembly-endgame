@@ -1,5 +1,4 @@
 import { useState } from "react";
-
 import "./App.css";
 import Header from "./components/Header";
 import Status from "./components/Status";
@@ -7,6 +6,7 @@ import LanguageChips from "./components/LanguageChips";
 import SecretWord from "./components/SecretWord";
 import Keyboard from "./components/Keyboard";
 import { getRandomWord } from "./components/utils";
+import Confetti from "react-confetti";
 
 function App() {
   const [currentWord, setCurrentWord] = useState(() => getRandomWord());
@@ -39,6 +39,7 @@ function App() {
 
   return (
     <main>
+      {isGameWon && <Confetti recycle={false} numberOfPieces={1000} />}
       <Header />
       <Status
         userWon={isGameWon}
