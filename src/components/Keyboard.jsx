@@ -25,6 +25,8 @@ export default function Keyboard({
         onClick={() => onGuess(letter)}
         key={letter}
         disabled={isGameEnd}
+        aria-disabled={isGameEnd || isGuessed}
+        aria-label={`Letter ${letter}`}
       >
         {letter.toUpperCase()}
       </button>
