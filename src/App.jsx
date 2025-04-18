@@ -20,6 +20,9 @@ function App() {
     .every((letter) => guessedLetters.includes(letter));
   const isGameOver = wrongGuessCount > 7;
   const isGameEnd = isGameOver || isGameWon;
+  const lastGuessedLetter = guessedLetters[guessedLetters.length - 1];
+  const isLastGuessIncorrect =
+    lastGuessedLetter && !currentWord.includes(lastGuessedLetter);
 
   function handleGuess(letter) {
     if (!guessedLetters.includes(letter)) {
@@ -30,7 +33,12 @@ function App() {
   return (
     <main>
       <Header />
-      <Status userWon={isGameWon} userLost={isGameOver} />
+      <Status
+        userWon={isGameWon}
+        userLost={isGameOver}
+        wrongGuessCount={wrongGuessCount}
+        isLastGuessIncorrect={isLastGuessIncorrect}
+      />
       <LanguageChips wrongGuessCount={wrongGuessCount} />
       <UserGuess secretWord={currentWord} userGuesses={guessedLetters} />
       <Keyboard

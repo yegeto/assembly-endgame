@@ -1,10 +1,22 @@
 import { clsx } from "clsx";
 import "./Status.css";
+import { getFarewellText } from "./utils";
+import { languages } from "./languages";
 
-export default function Status({ userLost, userWon }) {
+export default function Status({
+  userLost,
+  userWon,
+  wrongGuessCount,
+  isLastGuessIncorrect,
+}) {
+  const farewellMessage = isLastGuessIncorrect
+    ? getFarewellText(languages[wrongGuessCount - 1].name)
+    : "";
+
   const gameStatusClass = clsx("game-status", {
     won: userWon,
     lost: userLost,
+    farewell: isLastGuessIncorrect && !userLost,
   });
 
   function renderGameStatus() {
@@ -23,7 +35,7 @@ export default function Status({ userLost, userWon }) {
         </>
       );
     } else {
-      return null;
+      return <p className="farewell-message">{farewellMessage}</p>;
     }
   }
 
